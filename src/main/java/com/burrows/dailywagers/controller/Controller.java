@@ -3,6 +3,8 @@ package com.burrows.dailywagers.controller;
 import com.burrows.dailywagers.model.Worker;
 import com.burrows.dailywagers.service.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,4 +30,19 @@ public class Controller {
         this.workerService.postWorker(worker);
     }
 
+    @PutMapping("/{id}/{worker}")
+    public Worker updateWorker(@PathVariable Long id, @PathVariable Worker worker){
+        return this.workerService.updateWorker(id,worker);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HttpStatus> deleteWorker(@PathVariable Long id){
+        try {
+            this.workerService.deleteWorker(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        catch(Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

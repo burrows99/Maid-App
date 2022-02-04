@@ -21,4 +21,14 @@ public class WorkerServiceImpl implements WorkerService{
     @Override
     public void postWorker(Worker worker) {
     }
+
+    @Override
+    public void deleteWorker(Long id) {
+
+    }
+
+    @Override
+    public Worker updateWorker(Long id, Worker worker) {
+        return null;
+    }
 }
