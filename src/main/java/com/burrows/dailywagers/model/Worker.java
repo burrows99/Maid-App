@@ -9,6 +9,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -20,7 +22,7 @@ public class Worker {
     @Id
     private Long id;
     private String workerType;
-    private List<String> servicesOffered;
-    private List<DateTimeFormat> availability;
+    private String servicesOffered;
+    private LocalDate availability;
     private Integer rating;
 }
