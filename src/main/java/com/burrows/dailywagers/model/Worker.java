@@ -2,11 +2,12 @@ package com.burrows.dailywagers.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Data
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.List;
 
 @Data
@@ -14,10 +15,11 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Builder
-public class Maid {
+public class Worker {
+    @Id
     private Long id;
+    private String workerType;
     private List<String> servicesOffered;
     private List<DateTimeFormat> availability;
     private Integer rating;
-    private Integer distance;
 }
