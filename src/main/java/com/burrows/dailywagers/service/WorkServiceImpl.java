@@ -24,7 +24,6 @@ public class WorkServiceImpl implements WorkerService{
 
     @Override
     public void postWorker(Worker worker) {
-
     }
 
     @Override
