@@ -3,14 +3,18 @@ package com.burrows.dailywagers.controller;
 import com.burrows.dailywagers.model.Worker;
 import com.burrows.dailywagers.service.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/workers")
+@Component
+@ComponentScan("com.burrows.dailywagers.service.WorkerService")
 public class Controller {
 
     @Autowired

@@ -3,12 +3,14 @@ package com.burrows.dailywagers.service;
 import com.burrows.dailywagers.model.Worker;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Service
+@Component
 public interface WorkerService {
     public List<Worker> getWorkers(String workerType);
 
