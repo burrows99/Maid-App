@@ -23,7 +23,7 @@ public class Controller {
 
     @GetMapping("/{id}")
     public Worker getWorker(@PathVariable Long id){
-        return (Worker) this.workerService.getWorkers(String.valueOf(id));
+        return this.workerService.getWorker(id);
     }
 
     @PostMapping("/{worker}")
