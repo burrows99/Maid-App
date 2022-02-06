@@ -1,6 +1,9 @@
 package com.burrows.dailywagers.service;
 
 import com.burrows.dailywagers.model.Worker;
+import com.burrows.dailywagers.repository.WorkerRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -10,15 +13,26 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Service
-@Component
-public interface WorkerService {
-    public List<Worker> getWorkers(String workerType);
+public class WorkerService {
+	@Autowired
+    private WorkerRepository workerRepository;
 
-    public Worker getWorker(@PathVariable Long id);
+    public List<Worker> getWorkers(String workerType) {
+        return null;
+    }
 
-    public void postWorker(@PathVariable Worker worker);
+    public Worker getWorker(Long id) {
+        return null;
+    }
 
-    public void updateWorker(@PathVariable Worker worker);
+    public void postWorker(Worker worker) {
+    }
 
-    public ResponseEntity<HttpStatus> deleteWorker(Long id);
+    public void updateWorker(Worker worker) {
+
+    }
+
+    public ResponseEntity<HttpStatus> deleteWorker(Long id) {
+        return null;
+    }
 }
