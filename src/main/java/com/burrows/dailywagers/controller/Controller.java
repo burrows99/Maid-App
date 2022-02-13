@@ -20,30 +20,35 @@ public class Controller {
     @Autowired
     private WorkerService workerService;
 
+    @GetMapping("/home")
+    public String getHome(){
+        return "This is Home Page.";
+    }
+
     @GetMapping("/{workerType}")
-    public List<Worker> getWorkers(@PathVariable String workerType){
+    public List<Worker> getWorkers(@PathVariable("workerType") String workerType){
         return this.workerService.getWorkers(workerType);
     }
 
-    @GetMapping("/{id}")
-    public Worker getWorker(@PathVariable Long id){
-        return this.workerService.getWorker(id);
+    @GetMapping("/{username}")
+    public Worker getWorker(@PathVariable("username") String username){
+        return this.workerService.getWorker(username);
     }
 
     @PostMapping("/{worker}")
-    public void postWorker(@PathVariable Worker worker){
-        this.workerService.postWorker(worker);
+    public Worker postWorker(@RequestBody Worker worker){
+        return this.workerService.postWorker(worker);
     }
 
     @PutMapping("/{worker}")
-    public void updateWorker(@PathVariable Worker worker){
+    public void updateWorker(@RequestBody Worker worker){
         this.workerService.updateWorker(worker);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<HttpStatus> deleteWorker(@PathVariable Long id){
+    @DeleteMapping("/{username}")
+    public ResponseEntity<HttpStatus> deleteWorker(@PathVariable("useername") String username){
         try {
-            this.workerService.deleteWorker(id);
+            this.workerService.deleteWorker(username);
             return new ResponseEntity<>(HttpStatus.OK);
         }
         catch(Exception e){

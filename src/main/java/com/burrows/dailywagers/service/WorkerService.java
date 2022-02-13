@@ -1,14 +1,12 @@
 package com.burrows.dailywagers.service;
 
 import com.burrows.dailywagers.model.Worker;
-import com.burrows.dailywagers.repository.WorkerRepository;
 
+import com.burrows.dailywagers.repository.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,18 +19,21 @@ public class WorkerService {
         return null;
     }
 
-    public Worker getWorker(Long id) {
-        return null;
+    public Worker getWorker(String username) {
+        return this.workerRepository.findByUsername(username);
     }
 
-    public void postWorker(Worker worker) {
+    public Worker postWorker(Worker worker) {
+        return this.workerRepository.save(worker);
     }
 
-    public void updateWorker(Worker worker) {
-
+    public Worker updateWorker(Worker worker) {
+        Worker exsistingWorker = this.workerRepository.save(worker);
+        return worker;
     }
 
-    public ResponseEntity<HttpStatus> deleteWorker(Long id) {
-        return null;
+    public void deleteWorker(String username) {
+        Worker workerToBeDeleted = this.workerRepository.getById(username);
+        this.workerRepository.delete(workerToBeDeleted);
     }
 }

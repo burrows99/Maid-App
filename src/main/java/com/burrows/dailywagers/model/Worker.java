@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -20,9 +21,17 @@ import java.util.List;
 @Builder
 public class Worker {
     @Id
-    private Long id;
+    private String username;
+
+    @Column
+    private String password;
+
+    @Column
     private String workerType;
-    private String servicesOffered;
-    private LocalDate availability;
+
+    @Column
     private Integer rating;
+
+    @Column
+    private String role;
 }
